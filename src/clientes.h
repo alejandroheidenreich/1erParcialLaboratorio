@@ -33,7 +33,7 @@ clientes CrearCliente(int id);
 /// @param listaClientes
 /// @param tamC
 /// imprime toda la lista de clientes mientras tengan libre = 0
-void ImprimirClientes(clientes* listaClientes, int tamC);
+void ImprimirClientes(clientes* listaClientes, int tamC, localidades* listaLocalidades, int tamL);
 
 /// @fn int AltaClientes(clientes*, int, int, char*, char*, char*, char*)
 /// @param lista
@@ -45,7 +45,7 @@ void ImprimirClientes(clientes* listaClientes, int tamC);
 /// @param localidad
 /// añade nuevo cliente a la lista y cambia el estado libre a 0
 /// @return 0 error, 1 ok
-int AltaClientes(clientes* lista, int tam, int id, char* empresa, char* cuit, char* direccion, char* localidad);
+int AltaClientes(clientes* lista, int tam, int id, char* empresa, char* cuit, char* direccion, int localidad);
 
 /// @fn int VerificarClienteCargado(clientes*, int)
 /// @param lista
@@ -76,6 +76,6 @@ int ModClientes(clientes* lista, int tam);
 /// @return 0 error, 1 se dio de baja
 int BajaCliente(clientes* lista, int tam);
 
-int ModLocalidadCliente(clientes* lista, int tam, posCliente, idLocalidad);
+int ModLocalidadCliente(clientes* lista, int tam, int posCliente, int idLocalidad);
 
 #endif /* CLIENTES_H_ */

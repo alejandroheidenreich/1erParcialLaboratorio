@@ -109,17 +109,17 @@ int EncontrarClientePorID(clientes* lista, int tam, int id)
     return i;
 }
 
-int ModClientes(clientes* lista, int tam){
+int ModClientes(clientes* listaClientes, int tam, localidades* listaLocalidades, int tamL){
 	int check=-2;
 	int id;
 	int pos;
 	int opcion;
-	ImprimirClientes(lista,tam);
+	ImprimirClientes(listaClientes,tam, listaLocalidades, tamL);
 	id=PedirValidoNumeroEntero("Ingrese ID del cliente a modificar\n", "ID INVALIDO - ");
 
-	pos = EncontrarClientePorID(lista, tam, id);
+	pos = EncontrarClientePorID(listaClientes, tam, id);
 
-	if(pos  == -1 || lista[pos].libre==1 ){
+	if(pos  == -1 || listaClientes[pos].libre==1 ){
 		printf("ERROR - Cliente no encontrado\n");
 	}
 	else{
@@ -133,7 +133,7 @@ int ModClientes(clientes* lista, int tam){
 		opcion = IngresarEntero("\n\tIngrese una opcion: ",1,3);
 		switch(opcion){
 			case 1:
-				IngresarCadena("Modifique Direccion del Cliente: ", lista[pos].direccion);
+				IngresarCadena("Modifique Direccion del Cliente: ", listaClientes[pos].direccion);
 				check=-1;
 				break;
 
@@ -171,7 +171,7 @@ int BajaCliente(clientes* lista, int tam)
 	return check;
 }
 
-int ModLocalidadCliente(clientes* lista, int tam, posCliente, idLocalidad)
+int ModLocalidadCliente(clientes* lista, int tam, int posCliente, int idLocalidad)
 {
 	int check=0;
 
